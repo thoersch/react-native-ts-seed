@@ -55,8 +55,8 @@ export default function App() {
           <View>
             {
               todoList.map((todo: Todo, index: number) => (
-                <TouchableOpacity onPress={(e) => toggleTodo(index)} style={[styles.todo, todo.done ? styles.todoDone : styles.todoOpen]}>
-                  <Text style={[todo.done ? styles.todoDoneText : styles.todoDoneOpen]}>
+                <TouchableOpacity key={todo.id} onPress={(e) => toggleTodo(index)} style={[styles.todo, todo.done ? styles.todoDone : styles.todoOpen]}>
+                  <Text testID="todoTitle" style={[todo.done ? styles.todoDoneText : styles.todoDoneOpen]}>
                   {todo.title}
                   </Text>
                 </TouchableOpacity>
@@ -69,7 +69,8 @@ export default function App() {
                    value={newTodo} 
                    blurOnSubmit={false}
                    onSubmitEditing={e => addTodo(newTodo)} 
-                   onChangeText={(e) => setNewTodo(e)}></TextInput>
+                   onChangeText={(e) => setNewTodo(e)}
+                   testID="newTodoInput"></TextInput>
         <TouchableOpacity style={styles.removeTodos} onPress={(e) => removeTodos()} disabled={todoList.length === 0}><Text>Remove Completed</Text></TouchableOpacity>
       </SafeAreaView>
     );

@@ -5,6 +5,7 @@
 * Typescript
 * Babel
 * Jest
+* Enzyme
 * Metro
 
 ## Sample Todo List App
